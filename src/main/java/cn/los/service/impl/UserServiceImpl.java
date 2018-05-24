@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.los.base.BaseDao;
 import cn.los.entity.UserEntity;
 import cn.los.repository.UserRepository;
 import cn.los.service.UserService;
@@ -18,6 +19,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserEntity> finAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public BaseDao<UserEntity, Long> getRepository() {
+        return userRepository;
     }
 
 }
