@@ -20,6 +20,7 @@ public class UserController extends BaseController<UserEntity, Long> {
     @Override
     public BaseService getService() {
         return userService;
+        
     }
 
 }

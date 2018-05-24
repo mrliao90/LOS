@@ -14,7 +14,7 @@ public class ResultUtil<T> {
     }
 
     public Result<T> setData(T t){
-        this.result.setResult(t);
+        this.result.setData(t);
         this.result.setCode(200);
         return this.result;
     }
@@ -23,12 +23,12 @@ public class ResultUtil<T> {
         this.result.setSuccess(true);
         this.result.setMessage(msg);
         this.result.setCode(200);
-        this.result.setResult(null);
+        this.result.setData(null);
         return this.result;
     }
 
     public Result<T> setData(T t, String msg){
-        this.result.setResult(t);
+        this.result.setData(t);
         this.result.setCode(200);
         this.result.setMessage(msg);
         return this.result;
