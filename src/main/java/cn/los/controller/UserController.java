@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "list", method = RequestMethod.GET)
     public List<UserEntity> getBookList() {
 
         return userService.finAll();
