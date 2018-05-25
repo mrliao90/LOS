@@ -1,37 +1,25 @@
 package cn.los.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Proxy;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import cn.los.base.BaseEntity;
 
 @Entity
 @Table(name = "sys_user")
-public class UserEntity implements Serializable {
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Proxy(lazy = false)
+public class UserEntity extends BaseEntity {
 
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 编号
-     */
-    @Id
-    @GeneratedValue
-    private Long id;
     private String username;
     private String realname;
     private String password;
     private String status;
     private String headimg;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -71,6 +59,12 @@ public class UserEntity implements Serializable {
 
     public void setHeadimg(String headimg) {
         this.headimg = headimg;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity [id=" + getId() + ", username=" + username + ", realname=" + realname
+                + ", password=" + password + ", status=" + status + ", headimg=" + headimg + "]";
     }
 
 }

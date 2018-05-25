@@ -1,6 +1,5 @@
 package cn.los.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +11,7 @@ import cn.los.service.UserService;
 
 @RestController
 @RequestMapping("user")
-public class UserController extends BaseController<UserEntity, Long> {
+public class UserController extends BaseController<UserEntity, String> {
 
     @Autowired
     UserService userService;
@@ -20,7 +19,7 @@ public class UserController extends BaseController<UserEntity, Long> {
     @Override
     public BaseService getService() {
         return userService;
-        
+
     }
 
 }

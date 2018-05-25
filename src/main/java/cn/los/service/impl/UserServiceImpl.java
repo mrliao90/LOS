@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public BaseDao<UserEntity, Long> getRepository() {
+    public BaseDao<UserEntity, String> getRepository() {
         return userRepository;
     }
 
