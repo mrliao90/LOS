@@ -49,8 +49,6 @@ public class HelloWorldController {
     /**
      * 返回前台文件流
      *
-     * @author fengshuonan
-     * @date 2017年2月28日 下午2:53:19
      */
     protected ResponseEntity<byte[]> renderFile(String fileName, String filePath) {
         byte[] bytes = FileUtil.toByteArray(filePath);
@@ -60,8 +58,6 @@ public class HelloWorldController {
     /**
      * 返回前台文件流
      *
-     * @author fengshuonan
-     * @date 2017年2月28日 下午2:53:19
      */
     protected ResponseEntity<byte[]> renderFile(String fileName, byte[] fileBytes) {
         String dfileName = null;

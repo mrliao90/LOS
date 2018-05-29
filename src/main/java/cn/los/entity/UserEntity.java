@@ -15,6 +15,7 @@ import cn.los.base.BaseEntity;
 @Proxy(lazy = false)
 public class UserEntity extends BaseEntity {
 
+    private static final long serialVersionUID = 1L;
     private String username;
     private String realname;
     private String password;
