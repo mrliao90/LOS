@@ -3,7 +3,6 @@ package cn.los.base;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -41,7 +40,7 @@ public abstract class BaseEntity implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
-    private Integer delFlag = CommonConstant.STATUS_NORMAL;
+    private Integer delFlag = CommonConstant.STATUS_NORMAL; //iscancle
 
     public String getId() {
         return id;
