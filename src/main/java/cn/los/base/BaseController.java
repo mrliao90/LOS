@@ -26,7 +26,7 @@ public abstract class BaseController<E,ID extends Serializable> {
     @Autowired
     public abstract BaseService<E,ID> getService();
 
-    @RequestMapping(value = "/get/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "{id}",method = RequestMethod.GET)
     @ResponseBody
     public Result<E> get(@PathVariable ID id){
 
@@ -34,7 +34,7 @@ public abstract class BaseController<E,ID extends Serializable> {
         return new ResultUtil<E>().setData(entity);
     }
 
-    @RequestMapping(value = "/getAll",method = RequestMethod.GET)
+    @RequestMapping(value = "list",method = RequestMethod.GET)
     @ResponseBody
     public Result<List<E>> getAll(){
 
@@ -42,7 +42,7 @@ public abstract class BaseController<E,ID extends Serializable> {
         return new ResultUtil<List<E>>().setData(list);
     }
 
-    @RequestMapping(value = "/getByPage",method = RequestMethod.GET)
+    @RequestMapping(value = "list-page",method = RequestMethod.GET)
     @ResponseBody
     public Result<Page<E>> getByPage(@ModelAttribute PageVo page){
 
@@ -50,7 +50,7 @@ public abstract class BaseController<E,ID extends Serializable> {
         return new ResultUtil<Page<E>>().setData(list);
     }
 
-    @RequestMapping(value = "/save",method = RequestMethod.POST)
+    @RequestMapping(value = "save",method = RequestMethod.POST)
     @ResponseBody
     public Result<E> save(@ModelAttribute E entity){
 
@@ -58,7 +58,7 @@ public abstract class BaseController<E,ID extends Serializable> {
         return new ResultUtil<E>().setData(e);
     }
 
-    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    @RequestMapping(value = "update",method = RequestMethod.POST)
     @ResponseBody
     public Result<E> update(@ModelAttribute E entity){
 
@@ -66,7 +66,7 @@ public abstract class BaseController<E,ID extends Serializable> {
         return new ResultUtil<E>().setData(e);
     }
 
-    @RequestMapping(value = "/del",method = RequestMethod.DELETE)
+    @RequestMapping(value = "delete",method = RequestMethod.DELETE)
     @ResponseBody
     public Result<Object> delAll(@RequestBody List<E> entities){
 
@@ -74,7 +74,7 @@ public abstract class BaseController<E,ID extends Serializable> {
         return new ResultUtil<Object>().setSuccessMsg("批量删除数据成功");
     }
 
-    @RequestMapping(value = "/delByIds",method = RequestMethod.DELETE)
+    @RequestMapping(value = "delete-ids",method = RequestMethod.DELETE)
     @ResponseBody
     public Result<Object> delAllByIds(@RequestParam ID[] ids){
 

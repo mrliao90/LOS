@@ -27,9 +27,12 @@ public class Collect {
         
         int sum = accumulator.apply(0, 1);
         
-        
-        
         assertEquals(1, sum);
+        
+        //reduce 求和
+        int count = Stream.of(1,2,3,4,5).reduce(0,(i,j)-> i+j);
+        
+        assertEquals(15, count);
         
         
         
