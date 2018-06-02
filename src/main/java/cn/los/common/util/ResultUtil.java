@@ -18,6 +18,13 @@ public class ResultUtil<T> {
         this.result.setCode(200);
         return this.result;
     }
+    
+    public Result<T> setData2(T t,String token){
+        this.result.setData(t);
+        this.result.setCode(200);
+        this.result.setToken(token);
+        return this.result;
+    }
 
     public Result<T> setSuccessMsg(String msg){
         this.result.setSuccess(true);
@@ -47,4 +54,5 @@ public class ResultUtil<T> {
         this.result.setCode(code);
         return this.result;
     }
+
 }

@@ -17,3 +17,22 @@ CREATE TABLE `sys_user` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统用户';
 
+CREATE TABLE `sys_dict` (
+  `dict_value` varchar(64) NOT NULL COMMENT '字典值，固定不变的',
+  `dict_name` varchar(50) NOT NULL COMMENT '字典名称',
+  PRIMARY KEY (`dict_value`),
+  UNIQUE KEY `type` (`dict_value`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='数据字典表';
+
+CREATE TABLE `sys_dict_data` (
+  `id` varchar(64) NOT NULL,
+  `dict_value` varchar(45) DEFAULT NULL,
+  `dict_data_name` varchar(45) DEFAULT NULL,
+  `dict_data_value` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+

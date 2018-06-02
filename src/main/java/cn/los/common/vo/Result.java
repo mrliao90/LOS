@@ -33,6 +33,10 @@ public class Result<T> implements Serializable{
      * 结果对象
      */
     private T data;
+    /**
+     * 结果对象
+     */
+    private String token;
 
     public boolean isSuccess() {
         return success;
@@ -73,5 +77,12 @@ public class Result<T> implements Serializable{
     public void setData(T data) {
         this.data = data;
     }
-    
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

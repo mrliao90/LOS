@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import cn.los.common.util.FileUtil;
 
@@ -16,8 +17,9 @@ import cn.los.common.util.FileUtil;
 public class HelloWorldController {
 
     @RequestMapping(value = { "", "/" })
-    public String SayHello() {
-        return "Hello ,World";
+    public ModelAndView SayHello() {
+        ModelAndView mv = new ModelAndView("index");
+        return mv;
     }
 
     // 返回前台文件流
