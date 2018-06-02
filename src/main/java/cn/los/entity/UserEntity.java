@@ -21,6 +21,18 @@ public class UserEntity extends BaseEntity {
     private String password;
     private String status;
     private String headimg;
+    
+    
+
+    public UserEntity(String username, String realname) {
+        super();
+        this.username = username;
+        this.realname = realname;
+    }
+
+    public UserEntity() {
+        super();
+    }
 
     public String getUsername() {
         return username;
