@@ -7,6 +7,10 @@ import java.net.URL;
 public class MainTest {
 
     public static void main(String[] args) {
+
+        testString("blacklist-000001-20180326");
+
+        Integer.parseInt("-1");
         MainTest muDemo = new MainTest();
         try {
             muDemo.showURL();
@@ -14,6 +18,11 @@ public class MainTest {
             e.printStackTrace();
         }
 
+    }
+
+    public static void testString(String str) {
+        System.out.println(str.substring(10, 16));
+        System.out.println(str.substring(str.lastIndexOf("-") + 1));
     }
 
     // 获取类加载路径
