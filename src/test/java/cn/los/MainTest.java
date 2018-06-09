@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+import cn.los.common.util.FileUtil;
+
 public class MainTest {
 
     public static void main(String[] args) {
@@ -23,6 +25,30 @@ public class MainTest {
     public static void testString(String str) {
         System.out.println(str.substring(10, 16));
         System.out.println(str.substring(str.lastIndexOf("-") + 1));
+    }
+
+    /**
+     * 下载文件---返回下载后的文件存储路径
+     * 
+     * @param url
+     *            文件地址
+     * @param dir
+     *            存储目录
+     * @param fileName
+     *            存储文件名
+     * @return
+     */
+    public static void downloadHttpUrl(String url, String dir, String fileName) {
+        try {
+            URL httpurl = new URL(url);
+            File dirfile = new File(dir);
+            if (!dirfile.exists()) {
+                dirfile.mkdirs();
+            }
+            FileUtil.copyURLToFile(httpurl, new File(dir + fileName));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // 获取类加载路径
@@ -47,7 +73,8 @@ public class MainTest {
         String allClassPath = System.getProperty("java.class.path");
 
         // 项目部署的路径
-        // String path = request.getSession().getServletContext().getRealPath("/");
+        // String path =
+        // request.getSession().getServletContext().getRealPath("/");
 
         System.out.println("类加载根路径:" + classPath);
         System.out.println("类加载根路径:" + xmlPath);

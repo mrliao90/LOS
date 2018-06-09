@@ -3,17 +3,17 @@ package cn.los.common.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.los.exception.LosException;
 import cn.los.exception.LosExceptionEnum;
 
-public class FileUtil {
+public class FileUtil extends FileUtils {
 
     private static Logger log = LoggerFactory.getLogger(FileUtil.class);
 
@@ -66,11 +66,6 @@ public class FileUtil {
             }
         }
         return dir.delete();
-    }
-
-    public static void copyURLToFile(URL httpurl, File file) {
-        // TODO Auto-generated method stub
-
     }
 
 }

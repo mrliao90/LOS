@@ -1,3 +1,5 @@
+package cn.los;
+
 import cn.los.common.constant.ConstantClassField;
 import cn.los.common.constant.ConstantClassFunction;
 import cn.los.common.constant.ConstantEnum;
