@@ -3,6 +3,7 @@ package cn.los.common.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -65,6 +66,11 @@ public class FileUtil {
             }
         }
         return dir.delete();
+    }
+
+    public static void copyURLToFile(URL httpurl, File file) {
+        // TODO Auto-generated method stub
+
     }
 
 }

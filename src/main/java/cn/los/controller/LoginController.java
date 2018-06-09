@@ -18,7 +18,4 @@ public class LoginController {
         return new ResultUtil<String>().setData2("admin","admin");
     }
 
-    
-    
-
 }

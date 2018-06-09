@@ -1,10 +1,10 @@
-package cn.los.common.util;
+package cn.los.common.idgen;
 
 
 /**
  * 原作者 zzxadi https://github.com/zzxadi/Snowflake-IdWorker
  */
-public class SnowFlakeUtil {
+public class IdWorker {
 
     private final long id;
     /**
@@ -42,7 +42,7 @@ public class SnowFlakeUtil {
     private final long sequenceMask = -1L ^ -1L << this.sequenceBits;
     private long lastTimestamp = -1L;
 
-    private SnowFlakeUtil(long id) {
+    private IdWorker(long id) {
         if (id > this.maxWorkerId || id < 0) {
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", this.maxWorkerId));
         }
@@ -63,7 +63,6 @@ public class SnowFlakeUtil {
         }
 
         if (timestamp < this.lastTimestamp) {
-            //log.error(String.format("clock moved backwards.Refusing to generate id for %d milliseconds", (this.lastTimestamp - timestamp)));
             return -1;
         }
 
@@ -71,8 +70,8 @@ public class SnowFlakeUtil {
         return timestamp - this.epoch << this.timestampLeftShift | this.id << this.workerIdShift | this.sequence;
     }
 
-    private static SnowFlakeUtil flowIdWorker = new SnowFlakeUtil(1);
-    public static SnowFlakeUtil getFlowIdInstance() {
+    private static IdWorker flowIdWorker = new IdWorker(1);
+    public static IdWorker getFlowIdInstance() {
         return flowIdWorker;
     }
 
@@ -96,7 +95,7 @@ public class SnowFlakeUtil {
 
     public static void main(String[] args) {
         for(int i=0;i<100;i++){
-            SnowFlakeUtil snowFlakeUtil = SnowFlakeUtil.getFlowIdInstance();
+            IdWorker snowFlakeUtil = IdWorker.getFlowIdInstance();
             System.out.println(snowFlakeUtil.nextId());
         }
     }

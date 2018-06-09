@@ -2,11 +2,11 @@ package cn.los.entity;
 
 import javax.persistence.Id;
 
-import cn.los.common.util.SnowFlakeUtil;
+import cn.los.common.idgen.IdWorker;
 
 public class DictDataEntity {
     @Id
-    private String id = String.valueOf(SnowFlakeUtil.getFlowIdInstance().nextId());
+    private String id = String.valueOf(IdWorker.getFlowIdInstance().nextId());
     
     private String dictValue;
     

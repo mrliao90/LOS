@@ -15,7 +15,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import cn.los.common.constant.CommonConstant;
-import cn.los.common.util.SnowFlakeUtil;
+import cn.los.common.idgen.IdWorker;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
@@ -24,7 +24,7 @@ public abstract class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    private String id = String.valueOf(SnowFlakeUtil.getFlowIdInstance().nextId());
+    private String id = String.valueOf(IdWorker.getFlowIdInstance().nextId());
 
     private String createBy;
 
