@@ -1,5 +1,6 @@
 package cn.los.common.constant;
 
+//普通类中使用static final修饰变量的方法
 public class ConstantClassField {
 
     public static final String SUNDAY = "SUNDAY";
