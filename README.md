@@ -5,4 +5,5 @@ Learning open source
 
 2. 数据持久层框架  引入 :Spring Data JPA
 
-
+执行命令，通过 active 加载测试环境的配置。
+java -jar  ***.jar  --spring.profiles.active=test
