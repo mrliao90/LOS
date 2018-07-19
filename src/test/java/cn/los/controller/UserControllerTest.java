@@ -43,8 +43,6 @@ public class UserControllerTest extends LosTests {
         int status = mvcResult.getResponse().getStatus();
         String ls = mvcResult.getResponse().getContentAsString();
 
-        System.out.println("----------" + ls);
-
         Assert.assertTrue("错误，正确的返回值为200", status == 200);
         Assert.assertFalse("错误，正确的返回值为200", status != 200);
     }

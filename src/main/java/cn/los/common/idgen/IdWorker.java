@@ -1,6 +1,5 @@
 package cn.los.common.idgen;
 
-
 /**
  * 原作者 zzxadi https://github.com/zzxadi/Snowflake-IdWorker
  */
@@ -44,7 +43,8 @@ public class IdWorker {
 
     private IdWorker(long id) {
         if (id > this.maxWorkerId || id < 0) {
-            throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", this.maxWorkerId));
+            throw new IllegalArgumentException(String
+                    .format("worker Id can't be greater than %d or less than 0", this.maxWorkerId));
         }
         this.id = id;
     }
@@ -52,7 +52,8 @@ public class IdWorker {
     public synchronized long nextId() {
         long timestamp = timeGen();
         if (this.lastTimestamp == timestamp) {
-            //如果上一个timestamp与新产生的相等，则sequence加一(0-4095循环); 对新的timestamp，sequence从0开始
+            // 如果上一个timestamp与新产生的相等，则sequence加一(0-4095循环);
+            // 对新的timestamp，sequence从0开始
             this.sequence = this.sequence + 1 & this.sequenceMask;
             if (this.sequence == 0) {
                 // 重新生成timestamp
@@ -67,10 +68,12 @@ public class IdWorker {
         }
 
         this.lastTimestamp = timestamp;
-        return timestamp - this.epoch << this.timestampLeftShift | this.id << this.workerIdShift | this.sequence;
+        return timestamp - this.epoch << this.timestampLeftShift | this.id << this.workerIdShift
+                | this.sequence;
     }
 
     private static IdWorker flowIdWorker = new IdWorker(1);
+
     public static IdWorker getFlowIdInstance() {
         return flowIdWorker;
     }
@@ -91,12 +94,5 @@ public class IdWorker {
      */
     private static long timeGen() {
         return System.currentTimeMillis();
-    }
-
-    public static void main(String[] args) {
-        for(int i=0;i<100;i++){
-            IdWorker snowFlakeUtil = IdWorker.getFlowIdInstance();
-            System.out.println(snowFlakeUtil.nextId());
-        }
     }
 }
